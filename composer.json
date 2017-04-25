@@ -1,6 +1,6 @@
 {
-    "name": "php2wsdl/php2wsdl",
-    "description": "Create WSDL files form PHP classes.",
+    "name": "myssea/php2wsdl",
+    "description": "(Redevelop)Create WSDL files form PHP classes.",
     "type": "library",
     "keywords": [
         "wsdl",
