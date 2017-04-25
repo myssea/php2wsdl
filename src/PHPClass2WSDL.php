@@ -66,9 +66,10 @@ class PHPClass2WSDL
      *
      * @param mixed $class The class name from which to generate the WSDL.
      * @param string $uri The web service URL.
+     * @param boolean $useBodyEncode Whether use encode.
      * @throws InvalidArgumentException If the class is not valid or not an object.
      */
-    public function __construct($class, $uri)
+    public function __construct($class, $uri, $useBodyEncode=true)
     {
         if (is_string($class) && class_exists($class)) {
             $this->class = $class;
@@ -76,6 +77,10 @@ class PHPClass2WSDL
             $this->class = get_class($class);
         } else {
             throw new InvalidArgumentException('Invalid class name or object to generate the WSDL for.');
+        }
+
+        if (!$useBodyEncode) {
+            unset($this -> operationBodyStyle["use"]);
         }
 
         $this->uri = $uri;
